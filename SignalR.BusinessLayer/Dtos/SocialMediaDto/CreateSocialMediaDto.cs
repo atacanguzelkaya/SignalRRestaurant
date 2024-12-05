@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.SocialMediaDto
+﻿namespace SignalR.BusinessLayer.Dtos.SocialMediaDto
 {
     public class CreateSocialMediaDto
     {

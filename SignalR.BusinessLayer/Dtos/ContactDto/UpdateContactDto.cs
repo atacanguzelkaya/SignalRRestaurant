@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.ContactDto
+﻿namespace SignalR.BusinessLayer.Dtos.ContactDto
 {
     public class UpdateContactDto
     {

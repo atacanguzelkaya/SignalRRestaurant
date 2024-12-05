@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.CategoryDto
+﻿namespace SignalR.BusinessLayer.Dtos.CategoryDto
 {
     public class UpdateCategoryDto
     {

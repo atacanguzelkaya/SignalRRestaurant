@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SignalR.BusinessLayer.AboutDto;
+using SignalR.BusinessLayer.Dtos.AboutDto;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 
@@ -29,21 +29,21 @@ namespace SignalRApi.Controllers
 		{
 			var value = _mapper.Map<About>(createAboutDto);
 			_aboutService.TAdd(value);
-			return Ok("Hakkımda Kısmı Başarılı Bir Şekilde Eklendi");
+			return Ok("About Added");
 		}
 		[HttpDelete("{id}")]
 		public IActionResult DeleteAbout(int id)
 		{
 			var value = _aboutService.TGetByID(id);
 			_aboutService.TDelete(value);
-			return Ok("Hakkımda Alanı Silindi");
+			return Ok("About Deleted");
 		}
 		[HttpPut]
 		public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
 		{
 			var value = _mapper.Map<About>(updateAboutDto);
 			_aboutService.TUpdate(value);
-			return Ok("Hakkımda Alanı Güncellendi");
+			return Ok("About Updated");
 		}
 		[HttpGet("{id}")]
 		public IActionResult GetAbout(int id)

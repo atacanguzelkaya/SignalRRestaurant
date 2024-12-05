@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.FeatureDto
+﻿namespace SignalR.BusinessLayer.Dtos.FeatureDto
 {
     public class UpdateFeatureDto
     {

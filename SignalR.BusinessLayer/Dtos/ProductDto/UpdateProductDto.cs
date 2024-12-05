@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.ProductDto
+﻿namespace SignalR.BusinessLayer.Dtos.ProductDto
 {
     public class UpdateProductDto
     {

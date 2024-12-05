@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.DiscountDto
+﻿namespace SignalR.BusinessLayer.Dtos.DiscountDto
 {
 	public class UpdateDiscountDto
 	{

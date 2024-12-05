@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.BookingDto
+﻿namespace SignalR.BusinessLayer.Dtos.BookingDto
 {
     public class CreateBookingDto
     {

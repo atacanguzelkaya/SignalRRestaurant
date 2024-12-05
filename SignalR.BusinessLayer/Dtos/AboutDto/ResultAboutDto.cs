@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.AboutDto
+﻿namespace SignalR.BusinessLayer.Dtos.AboutDto
 {
     public class ResultAboutDto
     {

@@ -1,4 +1,4 @@
-﻿namespace SignalR.BusinessLayer.TestimonialDto
+﻿namespace SignalR.BusinessLayer.Dtos.TestimonialDto
 {
     public class GetTestimonialDto
     {
