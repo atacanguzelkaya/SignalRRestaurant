@@ -29,21 +29,50 @@ namespace SignalRApi.Controllers
 		[HttpGet("ProductListWithCategory")]
 		public IActionResult ProductListWithCategory()
 		{
-			//var context = new SignalRContext();
-			//var values = context.Products.Include(x => x.Category).Select(y => new ResultProductWithCategoryDto
-			//{
-			//	Description = y.Description,
-			//	ImageUrl = y.ImageUrl,
-			//	Price = y.Price,
-			//	ProductID = y.ProductID,
-			//	ProductName = y.ProductName,
-			//	ProductStatus = y.ProductStatus,
-			//	CategoryName = y.Category.CategoryName
-			//});
-			//return Ok(values.ToList());
-
 			var values = _productService.TGetProductsWithCategory();
 			return Ok(_mapper.Map<List<ResultProductWithCategoryDto>>(values));
+		}
+
+		[HttpGet("ProductCount")]
+		public IActionResult ProductCount()
+		{
+			return Ok(_productService.TProductCount());
+		}
+
+		[HttpGet("ProductNameByMaxPrice")]
+		public IActionResult ProductNameByMaxPrice()
+		{
+			return Ok(_productService.TProductNameByMaxPrice());
+		}
+
+		[HttpGet("ProductNameByMinPrice")]
+		public IActionResult ProductNameByMinPrice()
+		{
+			return Ok(_productService.TProductNameByMinPrice());
+		}
+
+		[HttpGet("ProductCountByHamburger")]
+		public IActionResult ProductCountByHamburger()
+		{
+			return Ok(_productService.TProductCountByCategoryNameHamburger());
+		}
+
+		[HttpGet("ProductCountByDrink")]
+		public IActionResult ProductCountByDrink()
+		{
+			return Ok(_productService.TProductCountByCategoryNameDrink());
+		}
+
+		[HttpGet("ProductPriceAvg")]
+		public IActionResult ProductPriceAvg()
+		{
+			return Ok(_productService.TProductPriceAvg());
+		}
+
+		[HttpGet("ProductAvgPriceByHamburger")]
+		public IActionResult ProductAvgPriceByHamburger()
+		{
+			return Ok(_productService.TProductAvgPriceByHamburger());
 		}
 
 		[HttpPost]
