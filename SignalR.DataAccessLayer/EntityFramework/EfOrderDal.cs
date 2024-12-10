@@ -27,5 +27,12 @@ namespace SignalR.DataAccessLayer.EntityFramework
 			using var context = new SignalRContext();
 			return context.Orders.Count();
 		}
+
+		public decimal TodayTotalPrice()
+		{
+			using var context = new SignalRContext();
+			var today = DateOnly.FromDateTime(DateTime.Today);
+			return context.Orders.Where(x => x.OrderDate == today && x.Description == "Hesap Kapandi").Sum(y => y.TotalPrice);
+		}
 	}
 }

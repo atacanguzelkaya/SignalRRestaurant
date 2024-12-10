@@ -13,6 +13,12 @@ namespace SignalRApi.Controllers
 		{
 			_orderService = orderService;
 		}
+		[HttpGet]
+		public IActionResult OrderList()
+		{
+			var values = _orderService.TGetListAll();
+			return Ok(values);
+		}
 
 		[HttpGet("TotalOrderCount")]
 		public IActionResult TotalOrderCount()
@@ -30,6 +36,11 @@ namespace SignalRApi.Controllers
 		public IActionResult LastOrderPrice()
 		{
 			return Ok(_orderService.TLastOrderPrice());
+		}
+		[HttpGet("TodayTotalPrice")]
+		public IActionResult TodayTotalPrice()
+		{
+			return Ok(_orderService.TTodayTotalPrice());
 		}
 	}
 }
