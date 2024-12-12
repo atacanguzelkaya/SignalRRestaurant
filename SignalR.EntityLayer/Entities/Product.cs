@@ -11,5 +11,6 @@
 		public int CategoryID { get; set; }
 		public virtual Category Category { get; set; }
 		public virtual List<OrderDetail> OrderDetails { get; set; }
+		public virtual List<Basket> Baskets { get; set; }
 	}
 }
