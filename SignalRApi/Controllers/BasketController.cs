@@ -37,14 +37,14 @@ namespace SignalRApi.Controllers
 		{
 			var value = _mapper.Map<Basket>(createBasketDto);
 			_basketService.TAdd(value);
-			return Ok("Basket Added");
+			return Ok("The selected product in the basket added");
 		}
 		[HttpDelete("{id}")]
 		public IActionResult DeleteBasket(int id)
 		{
 			var value = _basketService.TGetByID(id);
 			_basketService.TDelete(value);
-			return Ok("Sepetteki Seçilen Ürün Silindi");
+			return Ok("The selected product in the basket deleted");
 		}
 	}
 }

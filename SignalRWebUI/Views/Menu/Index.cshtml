@@ -44,7 +44,7 @@
 											<h6>
 												@item.Price₺
 											</h6>
-											<a href="#" onclick="showproductid(@item.ProductID, @ViewBag.v)">
+											<a href="#" onclick="showproductid(@item.ProductID, '@item.ProductName', @item.Price)">
 												<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
 												<g>
 												<g>
@@ -120,14 +120,21 @@
 
 
 	<script>
-		function showproductid(value) {
-			var id = value;
+		function showproductid(id, name, price) {
+			var itemName = name;
 			$.ajax({
 				type: 'POST',
-				data: { item: id },
-				contentType: 'json',
+				data: JSON.stringify({
+					productID: id,
+					price : price,
+					count: 1,
+					totalPrice: price,
+					menuTableID: 4
+				}),
+				url: "/Menu/AddBasket/",
+				contentType: 'application/json',
 				success: function () {
-					swal("Seçilen Ürün ID:" + id, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
+					swal("Seçilen Ürün: " + name, "Seçtiğiniz Ürün Sepete Eklendi!", "success");
 				}
 			});
 		};
