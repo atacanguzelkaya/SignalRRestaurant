@@ -24,6 +24,7 @@ namespace SignalRApi.Controllers
 			var values = _discountService.TGetListAll();
 			return Ok(_mapper.Map<List<ResultDiscountDto>>(values));
 		}
+
 		[HttpPost]
 		public IActionResult CreateDiscount(CreateDiscountDto createDiscountDto)
 		{
@@ -31,6 +32,7 @@ namespace SignalRApi.Controllers
 			_discountService.TAdd(value);
 			return Ok("Discount Added");
 		}
+
 		[HttpDelete("{id}")]
 		public IActionResult DeleteDiscount(int id)
 		{
@@ -38,6 +40,7 @@ namespace SignalRApi.Controllers
 			_discountService.TDelete(value);
 			return Ok("Discount Deleted");
 		}
+
 		[HttpPut]
 		public IActionResult UpdateDiscount(UpdateDiscountDto updateDiscountDto)
 		{
@@ -45,11 +48,32 @@ namespace SignalRApi.Controllers
 			_discountService.TUpdate(value);
 			return Ok("Discount Updated");
 		}
+
 		[HttpGet("{id}")]
 		public IActionResult GetDiscount(int id)
 		{
 			var value = _discountService.TGetByID(id);
 			return Ok(_mapper.Map<GetDiscountDto>(value));
+		}
+
+		[HttpGet("ChangeStatusToTrue/{id}")]
+		public IActionResult ChangeStatusToTrue(int id)
+		{
+			_discountService.TChangeStatusToTrue(id);
+			return Ok("Product Discount Activated");
+		}
+
+		[HttpGet("ChangeStatusToFalse/{id}")]
+		public IActionResult ChangeStatusToFalse(int id)
+		{
+			_discountService.TChangeStatusToFalse(id);
+			return Ok("Product Discount Deactivated");
+		}
+
+		[HttpGet("GetListByStatusTrue")]
+		public IActionResult GetListByStatusTrue()
+		{
+			return Ok(_discountService.TGetListByStatusTrue());
 		}
 	}
 }

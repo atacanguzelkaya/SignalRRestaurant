@@ -51,5 +51,18 @@ namespace SignalRApi.Controllers
 			var value = _bookingService.TGetByID(id);
 			return Ok(_mapper.Map<GetBookingDto>(value));
 		}
+
+		[HttpGet("BookingStatusApproved/{id}")]
+		public IActionResult BookingStatusApproved(int id)
+		{
+			_bookingService.BookingStatusApproved(id);
+			return Ok("Reservation Description Changed");
+		}
+		[HttpGet("BookingStatusCancelled/{id}")]
+		public IActionResult BookingStatusCancelled(int id)
+		{
+			_bookingService.BookingStatusCancelled(id);
+			return Ok("Reservation Description Changed");
+		}
 	}
 }
