@@ -15,8 +15,6 @@ namespace SignalRWebUI.Controllers
 		}
 		public async Task<IActionResult> Index(int id)
 		{
-			ViewBag.v = id; 
-
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync("https://localhost:44334/api/Product/ProductListWithCategory");
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
