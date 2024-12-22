@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.MessageDto;
 using System.Text;
 
 namespace SignalRWebUI.Controllers
 {
-	public class DefaultController : Controller
+    [AllowAnonymous]
+    public class DefaultController : Controller
 	{
         private readonly IHttpClientFactory _httpClientFactory;
         public DefaultController(IHttpClientFactory httpClientFactory)
