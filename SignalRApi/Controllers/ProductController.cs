@@ -82,6 +82,7 @@ namespace SignalRApi.Controllers
 			_productService.TAdd(value);
 			return Ok("Product Added");
 		}
+
 		[HttpDelete("{id}")]
 		public IActionResult DeleteProduct(int id)
 		{
@@ -89,6 +90,7 @@ namespace SignalRApi.Controllers
 			_productService.TDelete(value);
 			return Ok("Product Deleted");
 		}
+
 		[HttpPut]
 		public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
 		{
@@ -102,5 +104,12 @@ namespace SignalRApi.Controllers
 			var value = _productService.TGetByID(id);
 			return Ok(_mapper.Map<GetProductDto>(value));
 		}
-	}
+
+        [HttpGet("GetLast9Products")]
+        public IActionResult GetLast9Products()
+        {
+            var value = _productService.TGetLast9Products();
+            return Ok(value);
+        }
+    }
 }

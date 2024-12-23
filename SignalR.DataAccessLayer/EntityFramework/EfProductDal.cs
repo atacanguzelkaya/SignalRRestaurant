@@ -14,8 +14,7 @@ namespace SignalR.DataAccessLayer.EntityFramework
 		public List<Product> GetProductsWithCategory()
 		{
 			using var context = new SignalRContext();
-			var values = context.Products.Include(x => x.Category).ToList();
-			return values;
+			return context.Products.Include(x => x.Category).ToList();
 		}
 
 		public int ProductCount()
@@ -78,6 +77,12 @@ namespace SignalR.DataAccessLayer.EntityFramework
             using var context = new SignalRContext();
             int id = context.Categories.Where(x => x.CategoryName == "Salata").Select(y => y.CategoryID).FirstOrDefault();
             return context.Products.Where(x => x.CategoryID == id).Sum(y => y.Price);
+        }
+
+        public List<Product> GetLast9Products()
+        {
+            using var context = new SignalRContext();
+            return context.Products.Take(9).ToList(); 
         }
     }
 }
