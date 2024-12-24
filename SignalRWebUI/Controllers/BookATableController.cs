@@ -1,17 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SignalRWebUI.Dtos.BookingDto;
+using SignalRWebUI.Models;
 using System.Text;
 
 namespace SignalRWebUI.Controllers
 {
-	public class BookATableController : Controller
-	{
-		private readonly IHttpClientFactory _httpClientFactory;
-		public BookATableController(IHttpClientFactory httpClientFactory)
-		{
-			_httpClientFactory = httpClientFactory;
-		}
+    public class BookATableController : Controller
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
+        public BookATableController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
         [HttpGet]
         public IActionResult Index()
         {
@@ -30,7 +31,22 @@ namespace SignalRWebUI.Controllers
             {
                 return RedirectToAction("Index", "Default");
             }
-            return View();
+            else
+            {
+                var errorResponse = await responseMessage.Content.ReadFromJsonAsync<ApiValidationErrorResponse>();
+                if (errorResponse?.Errors != null)
+                {
+                    foreach (var error in errorResponse.Errors) 
+                    {
+                        foreach (var errorMessage in error.Value)
+                        {
+                            ModelState.AddModelError(error.Key, errorMessage);
+                        }
+                    }
+                }
+                
+            }
+            return View(createBookingDto);
         }
     }
 }

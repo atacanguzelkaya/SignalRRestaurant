@@ -45,6 +45,7 @@ namespace SignalRApi.Controllers
             _menuTableService.TDelete(value);
             return Ok("Table Deleted");
         }
+
         [HttpPut]
         public IActionResult UpdateMenuTable(UpdateMenuTableDto updateMenuTableDto)
         {
@@ -52,11 +53,26 @@ namespace SignalRApi.Controllers
             _menuTableService.TUpdate(value);
             return Ok("Table Updated");
         }
+
         [HttpGet("{id}")]
         public IActionResult GetMenuTable(int id)
         {
             var value = _menuTableService.TGetByID(id);
             return Ok(_mapper.Map<GetMenuTableDto>(value));
+        }
+
+        [HttpGet("ChangeMenuTableStatusToTrue")]
+        public IActionResult ChangeMenuTableStatusToTrue(int id)
+        {
+            _menuTableService.TChangeMenuTableStatusToTrue(id);
+            return Ok("Changed Successfully");
+        }
+
+        [HttpGet("ChangeMenuTableStatusToFalse")]
+        public IActionResult ChangeMenuTableStatusToFalse(int id)
+        {
+            _menuTableService.TChangeMenuTableStatusToFalse(id);
+            return Ok("Changed Successfully");
         }
     }
 }

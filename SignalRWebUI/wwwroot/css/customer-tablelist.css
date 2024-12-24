@@ -1,0 +1,59 @@
+﻿.widgettrue {
+    width: 200px;
+    height: 100px;
+    background-color: #2ecc71; /* Yeşil arka plan */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* widgetfalse class'ı */
+.widgetfalse {
+    width: 200px;
+    height: 100px;
+    background-color: palevioletred; /* Kırmızı arka plan */
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* widget-icon class'ı */
+.widget-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+    /* widget-icon içerisindeki i etiketi */
+    .widget-icon i {
+        font-size: 24px;
+        color: #2ecc71;
+    }
+
+/* widget-text class'ı */
+.widget-text {
+    margin-left: 20px;
+}
+
+    /* widget-text içerisindeki h3 etiketi */
+    .widget-text h3 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    /* widget-text içerisindeki p etiketi */
+    .widget-text p {
+        margin: 0;
+        font-size: 14px;
+    }
